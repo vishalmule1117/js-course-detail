@@ -12,69 +12,76 @@
 
     <style>
         .grid-block{
-            margin-top:60px;
+            margin-top:40px;
         }
         .grid-block .col-md-4{
             padding: 10px;
-            box-shadow:1px 1px 5px -1px #ccc;
+            /* box-shadow:1px 1px 5px -1px #ccc; */
         }
         .grid-block .col-md-4 input{
             margin-bottom:10px;
+        }
+        h5 p{
+            display:inline;
+        }
+        h1{
+            text-align: center;
+            font-size:28px;
+            line-height: 32px;
+            margin-bottom: 0px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="row" id="parentId">
-            <h1>Course Names</h1>
-            <div class="col-md-4">
-                <h5>Course Name - <span id="courseName1">TEXT</span></h5>
-            </div>
-            <div class="col-md-4">
-                <h5>Course Name -  <span id="courseName2">TEXT</span></h5>
-            </div>
-            <div class="col-md-4">
-                <h5>Course Name -  <span id="courseName3">TEXT</span></h5>
-            </div>
-        </div>
+        <h1>Course Details - Get Data on DOM & Convert Object Array in Console log</h1>
     <div class="row grid-block">
-       
         <div class="col-md-4" id="course1">
             <h3 class="courName">HTML</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.   </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
             <input type="text" placeholder="Enter email id" value="" /><br/>
-            <button onclick="courseinfo(this)">Submit</button>
+            <button onclick="courseinfo(this)">Submit</button><br/><br/>
+            <h5><strong>Course Name</strong> - <span></span></h5>
+            <h5><strong>Email ID</strong> - <p></p></h5>
         </div>
         <div class="col-md-4" id="course2">
             <h3 class="courName">CSS</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.   </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <input type="text" placeholder="Enter email id" /><br/>
-            <button onclick="courseinfo(this)">Submit</button>
+            <button onclick="courseinfo(this)">Submit</button><br/><br/>
+            <h5><strong>Course Name</strong> - <span></span></h5>
+            <h5><strong>Email ID</strong> - <p></p></h5>
         </div>  
         <div class="col-md-4" id="course3">
             <h3 class="courName">Javascript</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.   </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <input type="text" placeholder="Enter emai id" /><br/>
-            <button onclick="courseinfo(this)">Submit</button>
+            <button onclick="courseinfo(this)">Submit</button><br/><br/>
+            <h5><strong>Course Name</strong> - <span></span></h5>
+            <h5><strong>Email ID</strong> - <p></p></h5>
         </div>  
     </div>
 </div>
 
 <script>
+    data = []; 
     courseinfo = (currentele) =>{
          getparent = currentele.parentElement;
+
          gettext = getparent.querySelector("h3").innerText;
-        //  console.log(gettext)
+   
          getinput = getparent.querySelector("input").value;
-        //  console.log(getinput)
+       
+        getparent1 = getparent.querySelector("h5 span").innerHTML =  gettext;
+        getparent2 = getparent.querySelector("h5 p").innerHTML =  getinput;
 
-        //  prevparent = document.getElementById("parentId");
 
-         prvhtml1 = document.getElementById("courseName1").innerHTML =  gettext;
-         prvhtml2 = document.getElementById("courseName2").innerHTML =  gettext;
-         prvhtml3 = document.getElementById("courseName3").innerHTML =  gettext;
-        //  console.log(prvhtml)
+        const obj = {coursename:getparent1, emailid:getparent2};
+
+        data.push(obj)
+
+        console.log(data)
 
      }
  </script>
